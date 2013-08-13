@@ -30,3 +30,26 @@ var makeDancer = function(top, left, timeBetweenSteps){
 
   return dancer;
 };
+
+----------------------
+
+var Dancer = function(top, left, timeBetweenSteps) {
+  this.top = top;
+  this.left = left;
+  this.timeBetweenSteps = timeBetweenSteps;
+};
+
+Dancer.prototype.step = function() {
+  var self = this;
+  setTimeout(function() {
+    self.step();
+  }, this.timeBetweenSteps);
+};
+
+Dancer.prototype.setPosition = function(top, left) {
+  var styleSettings = {
+    top: this.top,
+    left: this.left
+  }
+  this.$node.css(styleSettings);
+};
