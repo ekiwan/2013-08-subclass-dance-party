@@ -8,6 +8,7 @@
     <script src="src/blinkyDancer.js"></script>
     <script src="src/fatDancer.js"></script>
     <script src="src/squareDancer.js"></script>
+    <audio src="media/horse.mp3" id="horse" preload="auto" autobuffer></audio>
   </head>
   <body>
 
@@ -20,6 +21,7 @@
 
     <script>
       $(document).ready(function(){
+        mySound = document.getElementById("horse");
         window.dancers = [];
 
         $(".addDancerButton").on("click", function(event){
@@ -52,9 +54,9 @@
           dancer.$node.addClass(dancerMakerFunctionName);
 
           $('body').append(dancer.$node);
+          mySound.play();
         });
       });
     </script>
-
   </body>
 </html>
